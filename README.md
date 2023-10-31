@@ -126,39 +126,20 @@ R2(config)#crypto ipsec transform-set MYSET esp-aes 128 esp-sha-hmac
 ```
 On the R2 router, create an IPsec profile and include transform set in the profile.
 ```
-R2(config)#crypto ipsec prof
 R2(config)#crypto ipsec profile MYPROFILE
-R2(ipsec-profile)#set trans
 R2(ipsec-profile)#set transform-set MYSET
 ```
 On the R2 router, create a new tunnel interface. Configure the interface to use the IP address and subnet of the Ethernet 0/0 interface. Specify a tunnel source (Ethernet 0/0) and a tunnel destination of R3’s Ethernet 0/0 interface IP address (172.18.4.2).
 ```
 R2(config)#interface tunnel 0
-R2(config-if)#ip unn
-*Oct 27 08:26:41.643: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to down
-R2(config-if)#ip unnu
-R2(config-if)#ip unnumbered et
 R2(config-if)#ip unnumbered ethernet 0/0
-R2(config-if)#tunne
-R2(config-if)#tunnel s
-R2(config-if)#tunnel sou
-R2(config-if)#tunnel source et
 R2(config-if)#tunnel source ethernet 0/0
-R2(config-if)#tunne
-R2(config-if)#tunnel des
 R2(config-if)#tunnel destination 172.18.4.2
 R2(config-if)#
 ```
 On the R2 router, specify IPsec as the tunnel encapsulation. Specify the traffic protection policy by referencing the configured IPsec profile.
 ```
 R2(config-if)#tunnel mode ipsec ipv4
-R2(config-if)#tun
-R2(config-if)#tunnel 
-*Oct 27 08:27:40.211: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to down
-R2(config-if)#tunnel pro
-R2(config-if)#tunnel protection ipse
-R2(config-if)#tunnel protection ipsec prof
-R2(config-if)#tunnel protection ipsec profile MY
 R2(config-if)#tunnel protection ipsec profile MYPROFILE
 ```
 On the R2 router, create a static route to the R3 internal network (10.10.2.0/24) that is reachable over the tunnel.
