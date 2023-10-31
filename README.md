@@ -71,6 +71,8 @@ Avoid policies that use MD5 as the hash algorithm, because SHA-1 is stronger. Ne
 
 Default lifetimes are conservative. For systems that will not agree on the lifetimes during negotiation, change the lifetime to an acceptable value. Cisco IOS Software does not require IKE peers to have a matching IKE lifetime setting. The IKE SA will establish it based on the shorter of the two settings.
 
+![Creating a VTI](https://raw.githubusercontent.com/deliawolf/Static-VTI-Point-to-Point-Tunnels/main/Screenshot%202023-10-31%20at%2014.41.06.png)
+
 ### Configuration example
 ```
 crypto isakmp policy 10
