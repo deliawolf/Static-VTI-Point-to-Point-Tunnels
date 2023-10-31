@@ -148,5 +148,6 @@ On the R2 router, create a static route to the R3 internal network (10.10.2.0/24
 ```
 R2(config)#ip route 10.10.2.0 255.255.255.0 tunnel 0
 ```
+CONFIGURATION IS SAME ON BOTH END, THE DIFFERENCE MAYBE ONLY INTERFACE AND DESTINATION IP
 
 
